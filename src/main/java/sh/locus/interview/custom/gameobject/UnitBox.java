@@ -8,17 +8,19 @@ public class UnitBox extends GameObject {
 
     private char[][] drawable;
     private int[][] skeleton = new int[][] { { 1 } };
+    private final int BUILDING_BLOCK_HEIGHT_CHARS = 3;
+    private final int BUILDING_BLOCK_WIDTH_CHARS = 5;
 
     @Override
     public int getMaxWidth() {
-        return Arrays.stream(skeleton).map(row -> row.length).max(Integer::compare).orElse(0) * 5;
+        return Arrays.stream(skeleton).map(row -> row.length).max(Integer::compare).orElse(0) * BUILDING_BLOCK_WIDTH_CHARS;
     }
 
     public void constructDrawable() {
 
-        char[][] _drawable = new char[skeleton.length * 3][getMaxWidth()];
+        char[][] _drawable = new char[skeleton.length * BUILDING_BLOCK_HEIGHT_CHARS][getMaxWidth()];
 
-        char[][] buildingBlock = new char[3][5];
+        char[][] buildingBlock = new char[BUILDING_BLOCK_HEIGHT_CHARS][BUILDING_BLOCK_WIDTH_CHARS];
         buildingBlock[0] = "+---+".toCharArray();
         buildingBlock[1] = "|[X]|".toCharArray();
         buildingBlock[2] = "+---+".toCharArray();
@@ -26,10 +28,12 @@ public class UnitBox extends GameObject {
         for (int i = 0; i < skeleton.length; i++) {
             for (int j = 0; j < skeleton[i].length; j++) {
                 if (skeleton[i][j] == 1) {
-                    for (int k = 0; k < 5; k++) {
-                        _drawable[i * 3][j * 5 + k] = buildingBlock[0][k];
-                        _drawable[(i * 3) + 1][j * 5 + k] = buildingBlock[1][k];
-                        _drawable[(i * 3) + 2][j * 5 + k] = buildingBlock[2][k];
+                    int offsetHeight = i * BUILDING_BLOCK_HEIGHT_CHARS;
+                    int offsetWidth = j * BUILDING_BLOCK_WIDTH_CHARS;
+                    for (int h=0; h < BUILDING_BLOCK_HEIGHT_CHARS; h++) {
+                        for (int w = 0; w <  BUILDING_BLOCK_WIDTH_CHARS;  w++) {
+                            _drawable[offsetHeight + h][offsetWidth + w] = buildingBlock[h][w];
+                        }
                     }
                 }
             }
