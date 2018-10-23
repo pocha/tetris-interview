@@ -7,35 +7,35 @@ import sh.locus.interview.game.engine.gameobject.GameObject;
 public class UnitBox extends GameObject {
 
     private char[][] drawable;
-    private int[][] structure = new int[][] { { 1 } };
+    private int[][] skeleton = new int[][] { { 1 } };
 
     @Override
     public int getMaxWidth() {
-        return Arrays.stream(structure).map(row -> row.length).max(Integer::compare).orElse(0) * 5;
+        return Arrays.stream(skeleton).map(row -> row.length).max(Integer::compare).orElse(0) * 5;
     }
 
     public void constructDrawable() {
 
-        char[][] box = new char[structure.length * 3][getMaxWidth()];
+        char[][] _drawable = new char[skeleton.length * 3][getMaxWidth()];
 
-        char[][] drawable = new char[3][5];
-        drawable[0] = "+---+".toCharArray();
-        drawable[1] = "|[X]|".toCharArray();
-        drawable[2] = "+---+".toCharArray();
+        char[][] buildingBlock = new char[3][5];
+        buildingBlock[0] = "+---+".toCharArray();
+        buildingBlock[1] = "|[X]|".toCharArray();
+        buildingBlock[2] = "+---+".toCharArray();
 
-        for (int i = 0; i < structure.length; i++) {
-            for (int j = 0; j < structure[i].length; j++) {
-                if (structure[i][j] == 1) {
+        for (int i = 0; i < skeleton.length; i++) {
+            for (int j = 0; j < skeleton[i].length; j++) {
+                if (skeleton[i][j] == 1) {
                     for (int k = 0; k < 5; k++) {
-                        box[i * 3][j * 5 + k] = drawable[0][k];
-                        box[(i * 3) + 1][j * 5 + k] = drawable[1][k];
-                        box[(i * 3) + 2][j * 5 + k] = drawable[2][k];
+                        _drawable[i * 3][j * 5 + k] = buildingBlock[0][k];
+                        _drawable[(i * 3) + 1][j * 5 + k] = buildingBlock[1][k];
+                        _drawable[(i * 3) + 2][j * 5 + k] = buildingBlock[2][k];
                     }
                 }
             }
         }
 
-        this.drawable = box;
+        this.drawable = _drawable;
 
     }
 
