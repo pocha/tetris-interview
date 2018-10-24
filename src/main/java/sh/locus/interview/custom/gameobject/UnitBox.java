@@ -1,6 +1,6 @@
 package sh.locus.interview.custom.gameobject;
 
-import java.util.Arrays;
+import static sh.locus.interview.custom.util.ArrayUtils.longestRow;
 
 import sh.locus.interview.game.engine.gameobject.GameObject;
 
@@ -13,7 +13,7 @@ public class UnitBox extends GameObject {
 
     @Override
     public int getMaxWidth() {
-        return Arrays.stream(skeleton).map(row -> row.length).max(Integer::compare).orElse(0) * BUILDING_BLOCK_WIDTH_CHARS;
+        return longestRow(skeleton) * BUILDING_BLOCK_WIDTH_CHARS;
     }
 
     public void constructDrawable() {
@@ -30,8 +30,8 @@ public class UnitBox extends GameObject {
                 if (skeleton[i][j] == 1) {
                     int offsetHeight = i * BUILDING_BLOCK_HEIGHT_CHARS;
                     int offsetWidth = j * BUILDING_BLOCK_WIDTH_CHARS;
-                    for (int h=0; h < BUILDING_BLOCK_HEIGHT_CHARS; h++) {
-                        for (int w = 0; w <  BUILDING_BLOCK_WIDTH_CHARS;  w++) {
+                    for (int h = 0; h < BUILDING_BLOCK_HEIGHT_CHARS; h++) {
+                        for (int w = 0; w < BUILDING_BLOCK_WIDTH_CHARS; w++) {
                             _drawable[offsetHeight + h][offsetWidth + w] = buildingBlock[h][w];
                         }
                     }
