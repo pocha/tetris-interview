@@ -33,6 +33,10 @@ Download the project [here](https://drive.google.com/a/duringcoffee.com/file/d/1
 
 The exact launch command is encapsulated in the `tetris` file on the top. Running it on command line should get you started. 
 
+![screenshot](/screenshot.png?raw=true)
+
+**Make sure the Gamepad window is selected otherwise the left right down moves will not work**
+
 ### Step 2 - understand the code ###
 > Estimated time - 15 min 
 
