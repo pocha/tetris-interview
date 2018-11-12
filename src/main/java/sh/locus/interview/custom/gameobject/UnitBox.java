@@ -32,7 +32,8 @@ public class UnitBox extends GameObject {
                     int offsetWidth = j * BUILDING_BLOCK_WIDTH_CHARS;
                     for (int h = 0; h < BUILDING_BLOCK_HEIGHT_CHARS; h++) {
                         for (int w = 0; w < BUILDING_BLOCK_WIDTH_CHARS; w++) {
-                            _drawable[offsetHeight + h][offsetWidth + w] = buildingBlock[h][w];
+                           _drawable[offsetHeight + h][offsetWidth + w] =
+                                skeleton[i][j] == 1 ? buildingBlock[h][w] : ' ';
                         }
                     }
                 }
