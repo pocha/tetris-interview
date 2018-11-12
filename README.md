@@ -31,11 +31,12 @@ You are provided with a command line tetris app written in Java. The rest of the
 
 Download the project [here](https://drive.google.com/a/duringcoffee.com/file/d/1MzRwlngDegLkxjOW6X9jUmxEWPyDv4L3/view?usp=sharing). It is built using maven. You need to setup maven on your machine or if you are a java guru, you can always get it to work with your choice of build tool. 
 
-The exact launch command is encapsulated in the `tetris` file on the top. Running it on command line should get you started. 
+The exact launch command is encapsulated in the `tetris` file on the top. Running it on command line should get you started.
 
-![screenshot](/screenshot.png?raw=true)
+> Make sure the Gamepad window is selected otherwise the left right down moves will not work
 
-**Make sure the Gamepad window is selected otherwise the left right down moves will not work**
+![Tetris demo gif will appear here](/tetrisdemo.gif?raw=true)
+
 
 ### Step 2 - understand the code ###
 > Estimated time - 15 min 
